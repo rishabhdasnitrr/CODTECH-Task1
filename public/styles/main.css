@@ -1,0 +1,143 @@
+@media (min-width: 700px) {
+    .note-box{
+        position: relative;
+        min-width: 600px;
+        width: 100%;
+        max-width: 600px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.gradient-background-main {
+    background: linear-gradient(300deg, #793FDF, #7091F5, #97FFF4, #FFFD8C);
+    background-size: 180% 180%;
+    animation: gradient-animation 10s ease infinite;
+}
+
+.basic-plan{
+    background: linear-gradient(300deg, #916DB3, #E48586, #FCBAAD, #FDE5EC);
+    background-size: 180% 180%;
+    animation: gradient-animation 5s ease infinite;
+    color: white;
+}
+
+.pro-plan {
+    background: linear-gradient(300deg, #B5D5C5, #B08BBB, #ECA869, #F5F5DC);
+    background-size: 180% 180%;
+    animation: gradient-animation 5s ease infinite;
+    color: white;
+}
+
+.pro-plan:hover {
+    color: black;
+    text-decoration: none;
+}
+
+.premium-plan {
+    background: linear-gradient(300deg, #461959, #7A316F, #CD6688, #AED8CC);
+    background-size: 180% 180%;
+    animation: gradient-animation 5s ease infinite;
+    color: white;
+}
+
+.premium-plan:hover {
+    color: black;
+    text-decoration: none;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.cursive-font{
+    font-family: 'Caveat', cursive;
+}
+
+.amatic-font{
+    font-family: 'Amatic SC', cursive;
+}
+
+.nav-btn:hover{
+    color: #FFFD8C !important ;
+}
+
+section{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 75vh;
+}
+
+.note-box{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.note-area{
+    border-radius: 10px;
+}
+
+.incomplete{
+    background-color: #FFDBAA;
+}
+
+.complete{
+    background-color: #96C291;
+}
+
+.strikethrough:checked + .strike-content{
+    background-color: #96C291;
+    text-decoration:line-through;
+}
+
+.free-btn{
+    color: #E48586;
+    border-color: #E48586;
+}
+
+.free-btn:hover{
+    color: white;
+    background-color: #E48586;
+    text-decoration: none;
+}
+
+.faq-list{
+    max-width: 1024px;
+}
+
+.signupBox{
+    width: 90%;
+    max-width: 500px;
+    border-radius: 10px;
+}
+
+.reenter-password-btn{
+    border: 1px #C70039 solid;
+    border-radius: 5px;
+    color: wheat;
+    background-color: #C70039;
+}
+
+.reenter-password-btn:hover{
+    color: #C70039;
+    background-color: white;
+}

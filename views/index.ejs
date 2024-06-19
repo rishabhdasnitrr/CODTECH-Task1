@@ -1,0 +1,60 @@
+<%- include("partials/header.ejs") %>
+
+    <section class="flex-column justify-content-center mb-4">
+        <div class="p-3 align-items-center text-center fw-bolder fs-1 amatic-font">
+            Welcome to TimeTower. Effortlessly Achieve Your Daily Goals with the Ultimate Todo List App!
+        </div>
+
+        <div class="d-flex flex-column flex-md-row p-4 gap-4 py-5 m-2 align-items-center justify-content-center 
+        <% if(planIndex === 0) {%>
+            basic-plan
+        <% } %>
+        <% if(planIndex === 1) {%>
+            pro-plan
+        <% } %>
+        <% if(planIndex === 2) {%>
+            premium-plan
+        <% } %>
+        note-area">
+            <form action="/submit" method="post">
+                <div class="list-group">
+
+                    <% for(let i=0; i<noteHeadings.length; i++) { %>
+
+                        <label class="list-group-item d-flex gap-3 note-box <%= noteDone[i] === 0 ? "incomplete" : "complete" %>">
+                            <input class="form-check-input flex-shrink-0 strikethrough" type="checkbox" value="<%= i %>"
+                            <%= noteDone[i] === 0 ? "" : "checked" %>
+                                style="font-size: 1.375em;" name="marker">
+                            <div class="w-100 p-3 form-checked-content strike-content text-wrap">
+                                <strong>
+                                    <%= noteHeadings[i] %>
+                                </strong>
+                                <div class="flex-row text-end text-body-secondary fst-italic py-1"><%=noteTime[i] %></div>
+                                <small class="d-block text-body-secondary">
+                                    <%= noteBodies[i] %>
+                                </small>
+                            </div>
+                            
+                        </label>
+
+                    <% } %>
+
+                    <label class="list-group-item d-flex-row gap-3 bg-body-tertiary notes">
+                            <div class="mb-3">
+                                <input type="text" class="form-control" name="title" placeholder="Add task...">
+                            </div>
+                            <div class="mb-3">
+                                <textarea class="form-control" name="body" rows="3" placeholder="Add task description..."></textarea>
+                            </div>
+                            <div class="d-grid gap-2">
+                                <button class="btn free-btn" type="submit">Add task</button>
+                                <button class="btn free-btn" type="submit">Update</button>
+                            </div>
+                    </label>
+                </div>
+            </form>
+        </div>
+    </section>
+
+<%- include("partials/footer.ejs") %>
+

@@ -1,0 +1,77 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container py-3">
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal text-body-emphasis">Pricing</h1>
+            <p class="fs-5 text-body-secondary">Discover the Perfect Plan for Your Productivity Goals</p>
+        </div>
+
+        <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header basic-plan py-3">
+                        <h4 class="my-0 fw-normal">Basic Plan</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">Free</h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Task List Management</li>
+                            <li>Due Date Tracking</li>
+                            <li>Basic Reminders</li>
+                            <li>Limited Collaboration (Share up to 3 lists)</li>
+                        </ul>
+                        <a href="/signup">
+                            <button type="button" class="w-100 btn btn-lg free-btn">Sign up for free</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm">
+                    <div class="card-header pro-plan py-3">
+                        <h4 class="my-0 fw-normal">Pro Plan</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$9.99<small
+                                class="text-body-secondary fw-light"> /month</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Unlimited Task Lists</li>
+                            <li>Advanced Task Reminders</li>
+                            <li>Task History Tracking</li>
+                            <li>Offline Access</li>
+                        </ul>
+                        <form method="post" action="/checkout">
+                            <button type="submit" name="plan" value="1" class="w-100 btn btn-lg" style="background-color: #ECA869; color: white;">Get started</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 rounded-3 shadow-sm border-warning">
+                    <div class="card-header py-3 premium-plan border-warning">
+                        <h4 class="my-0 fw-normal">Premium Plan</h4>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title pricing-card-title">$19.99<small
+                                class="text-body-secondary fw-light"> /month</small></h1>
+                        <ul class="list-unstyled mt-3 mb-4">
+                            <li>Team Productivity Dashboard</li>
+                            <li>Advanced Analytics and Insights</li>
+                            <li>File Attachments to Tasks</li>
+                            <li>Customer Support Priority Access</li>
+                        </ul>
+                        <form method="post" action="/checkout">
+                            <button type="submit" name="plan" value="2" class="w-100 btn btn-lg premium-plan">Contact us</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-left">
+            <p class="fs-5 text-body-secondary">Note: All plans come with a 7-day free trial of the Premium Plan.</p>
+            <p class="fs-5 text-body-secondary">These pricing tiers offer a range of options to cater to users with different needs and budgets, from those looking for a basic task management solution to power users and teams who require advanced features and collaboration capabilities.</p>
+        </div>
+    </div>
+
+<%- include("partials/footer.ejs") %>

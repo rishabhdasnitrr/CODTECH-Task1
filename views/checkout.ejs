@@ -1,0 +1,142 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="d-flex-row m-4 p-4 rounded-5 bg-body-tertiary">
+        <main>
+            <div class="py-5 text-center">
+                <img class="d-block mx-auto mb-4" src="images/icon.png" alt="time-tower-icon" width="72"
+                    height="72">
+                <h2>Checkout</h2>
+            </div>
+
+            <div id="cart" class="row g-5">
+                <div class="col-md-5 col-lg-4 order-md-last">
+                    <h4 class="d-flex justify-content-between align-items-center mb-3">
+                        <span class="text-warning">Your cart</span>
+                        <span class="badge bg-warning rounded-pill">1</span>
+                    </h4>
+                    <ul class="list-group mb-3">
+                        <li class="list-group-item d-flex justify-content-between lh-sm">
+                            <div>
+                                <h6 class="my-0">
+                                    <%= planList[selectedPlanIndex] %>
+                                </h6>
+                            </div>
+                            <span class="text-body-secondary">$ <%= planPriceList[selectedPlanIndex] %></span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between bg-body-tertiary">
+                            <div class="text-success">
+                                <h6 class="my-0">Promo code</h6>
+                                <small>NEWUSER</small>
+                            </div>
+                            <span class="text-success">−$ 2.00</span>
+                        </li>
+                        <li class="list-group-item d-flex justify-content-between">
+                            <span>Total (USD)</span>
+                            <strong>$ <%= (planPriceList[selectedPlanIndex] - 2.00).toFixed(2); %></strong>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                    <h4 class="mb-3">Billing address</h4>
+                    <form  action="/confirm" method="post">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <label for="firstName" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="" value=""
+                                    required="">
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label for="lastName" class="form-label">Last name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="" value=""
+                                    required="">
+                            </div>
+
+                            <div class="col-md-8">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" placeholder="">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="country" class="form-label">Country</label>
+                                <select class="form-select" id="country" required="">
+                                    <% for(let i = 0; i < countryList.length; i++) {%>
+                                        <option>
+                                            <%= countryList[i] %>
+                                        </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <h4 class="mb-3">Payment</h4>
+
+                        <div class="my-3">
+                            <div class="form-check">
+                                <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked=""
+                                    required="">
+                                <label class="form-check-label" for="credit">Credit card</label>
+                            </div>
+                            <div class="form-check">
+                                <input id="debit" name="paymentMethod" type="radio" class="form-check-input"
+                                    required="">
+                                <label class="form-check-label" for="debit">Debit card</label>
+                            </div>
+                        </div>
+
+                        <div class="row gy-3">
+                            <div class="col-md-6">
+                                <label for="cc-name" class="form-label">Name on card</label>
+                                <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                                <small class="text-body-secondary">Full name as displayed on card</small>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label for="cc-number" class="form-label">Debit/Credit Card number</label>
+                                <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="cc-expiration" class="form-label">Expiry Month</label>
+                                <select class="form-select" id="country" required="">
+                                    <% for(let i = 0; i < 12 ; i++) {%>
+                                        <option>
+                                            <%= monthList[i] %>
+                                        </option>
+                                    <% } %>
+                                </select>
+                            </div>
+                            
+                            <div class="col-md-4">
+                                <label for="cc-expiration" class="form-label">Expiry Year</label>
+                                <select class="form-select" id="country" required="">
+                                    <% for(let i = currentYear; i <= currentYear + 10 ; i++) {%>
+                                        <option>
+                                            <%= i %>
+                                        </option>
+                                    <% } %>
+                                </select>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label for="cc-cvv" class="form-label">CVV/CVC</label>
+                                <input type="password" class="form-control" id="cc-cvv" placeholder="" required="">
+                            </div>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <button class="w-100 btn gradient-background-main btn-lg" type="submit" name="plan" value="<%= selectedPlanIndex %>">Complete Your Purchase</button>
+                    </form>
+                </div>
+            </div>
+        </main>
+
+        <footer class="mb-2 pt-5 text-body-secondary text-center text-small">
+            <p class="mb-1">© 2023 TimeTower Inc.</p>
+        </footer>
+    </div>
+
+<%- include("partials/footer.ejs") %>

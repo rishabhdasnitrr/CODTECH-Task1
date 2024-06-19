@@ -1,0 +1,41 @@
+<%- include("partials/header.ejs") %>
+
+    <div class="container d-flex justify-content-center form-signin w-100 my-4">
+        <form class="signupBox my-3 p-4 bg-body-tertiary" method="post" action="/signup">
+            <div class="container d-flex justify-content-center">
+                <img class="mb-4" src="images/icon.png" alt="time-tower-icon" width="72" height="72">
+            </div>
+            <h1 class="h1 m-3 cursive-font text-center">Get Started With TimeTower</h1>
+
+            <div class="form-floating my-2">
+                <input type="text" class="form-control" name="name" placeholder="Name" required="">
+                <label for="name">
+                    <%= mismatchPassword === 1 ? enteredName : "Name" %>
+                </label>
+            </div>
+            <div class="form-floating my-2">
+                <input type="email" class="form-control" name="email" placeholder="name@example.com" required="">
+                <label for="floatingInput">
+                    <%= mismatchPassword === 1 ? enteredEmail : "Email address" %>
+                </label>
+            </div>
+            <div class="form-floating my-2">
+                <input type="password" class="form-control" id="pw" name="password1" placeholder="Password" required="">
+                <label for="floatingPassword">Password</label>
+            </div>
+            <div class="form-floating my-2">
+                <input type="password" class="form-control" name="password2" placeholder="Confirm Password" required="">
+                <label for="floatingPassword">Confirm Password</label>
+            </div>
+            <% if (mismatchPassword === 1) { %>
+                <div class="fs-5 my-3 py-2 text-center reenter-password-btn">
+                    <i class="fa-solid fa-triangle-exclamation mx-2"></i>
+                    Enter same passwords
+                </div>
+            <% } %>
+            <button class="btn free-btn w-100 py-2" type="submit">Sign Up</button>
+        </form>
+    </div>
+
+
+<%- include("partials/footer.ejs") %>
